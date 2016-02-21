@@ -30,12 +30,16 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "shell", inline: <<-SHELL
-    #### Install Android SDK - this section heavily borrowed from
-    #### https://github.com/driftyco/ionic-box/blob/master/bootstrap.sh
     apt-get update
-    apt-get install -y npm git
+    apt-get install -y npm git vim-gnome socat python-pip socat python-dev build-essential libtool autoconf
     npm install -g n
     n stable
+    sudo pip install flask
+    
+  SHELL
+
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    
   SHELL
 
 end

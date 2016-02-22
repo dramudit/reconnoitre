@@ -15,6 +15,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.network "forwarded_port", guest: 80, host: 80
+  config.vm.network "forwarded_port", guest: 5000, host: 5000
 
   # Use rsync to keep files on the host continually updated in the VM
   # This is required for live reload to work correctly
